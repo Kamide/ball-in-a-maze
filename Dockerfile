@@ -12,6 +12,9 @@ FROM base AS dev
 EXPOSE 5173
 CMD ["npm", "run", "dev"]
 
+FROM base AS test
+CMD ["npm", "run", "test"]
+
 FROM base AS build
 RUN npm run build
 

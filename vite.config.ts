@@ -1,3 +1,5 @@
+/// <reference types="vitest/config" />
+
 import tailwindcss from "@tailwindcss/vite";
 import ssl from "@vitejs/plugin-basic-ssl";
 import react from "@vitejs/plugin-react";
@@ -14,6 +16,11 @@ export default defineConfig({
     tailwindcss(),
     ssl(),
   ],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    include: ["tests/**/*.test.{ts,tsx}"],
+  },
   build: {
     rolldownOptions: {
       output: {

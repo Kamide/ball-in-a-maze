@@ -2,6 +2,11 @@
   "recommendations": [
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "docker.docker",
+    "esbenp.prettier-vscode",
+    "ms-azuretools.vscode-containers",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "vitest.explorer"
   ]
 }
