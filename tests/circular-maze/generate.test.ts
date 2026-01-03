@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
-import type { CircularMaze } from "../../src/circular-maze/core.ts";
+import type { CircularMaze } from "../../src/circular-maze/core";
 import {
   CLOCKWISE,
   COUNTERCLOCKWISE,
   INWARD,
   oppositeWallOf,
   OUTWARD,
-} from "../../src/circular-maze/core.ts";
-import { generateCircularMaze } from "../../src/circular-maze/generate.ts";
+} from "../../src/circular-maze/core";
+import { generateCircularMaze } from "../../src/circular-maze/generate";
 
 describe("generateCircularMaze", () => {
   it("produces a maze with valid clamped dimensions", () => {

@@ -11,9 +11,9 @@ import {
   RINGS,
   SEGMENTS,
   WALLS,
-} from "../../src/circular-maze/core.ts";
+} from "../../src/circular-maze/core";
 
-describe("circular-maze core", () => {
+describe("CircularMaze", () => {
   it("defines disjoint single-bit wall flags and a correct ALL mask", () => {
     const walls = [CLOCKWISE, COUNTERCLOCKWISE, INWARD, OUTWARD];
 

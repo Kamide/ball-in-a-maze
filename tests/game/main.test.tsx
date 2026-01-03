@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import { describe, it } from "vitest";
-import { Game } from "../../src/game/main.tsx";
+import { Game } from "../../src/game/main";
 
-describe("game main component", () => {
+describe("Game", () => {
   it("renders without crashing", () => {
     render(<Game />);
   });
