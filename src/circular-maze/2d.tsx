@@ -33,7 +33,7 @@ export function CircularMaze2D(props: CircularMaze2DProps) {
   const ringThickness = (maxRadius - entranceRadius) / maze.rings;
   const angleStep = (2 * Math.PI) / maze.segments;
 
-  const paths: JSX.Element[] = [];
+  const paths: Array<JSX.Element> = [];
 
   const addPath = (d: string): void => {
     paths.push(<path key={paths.length} d={d} />);
