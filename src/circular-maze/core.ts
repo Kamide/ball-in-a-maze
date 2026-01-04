@@ -1,4 +1,6 @@
 // #region walls
+import { base64ToUint8Array, uint8ArrayToBase64 } from "uint8array-extras";
+
 export const NONE = 0b0000;
 export const CLOCKWISE = 0b0001;
 export const COUNTERCLOCKWISE = 0b0010;
@@ -60,6 +62,19 @@ export class CircularMaze {
     return new CircularMaze(data);
   }
 
+  static fromString(string: string): CircularMaze | undefined {
+    const data = base64ToUint8Array(string);
+
+    if (
+      data.length > WALLS &&
+      data[0] > 0 &&
+      data[1] > 0 &&
+      data.length === WALLS + data[0] * data[1]
+    ) {
+      return new CircularMaze(base64ToUint8Array(string));
+    }
+  }
+
   forEach(
     action: (ring: number, segment: number, walls: number) => void,
   ): void {
@@ -74,6 +89,10 @@ export class CircularMaze {
 
   indexOf(ring: number, segment: number): number {
     return WALLS + ring * this.segments + segment;
+  }
+
+  toString(): string {
+    return uint8ArrayToBase64(this.data, { urlSafe: true });
   }
 
   unblock(ring: number, segment: number, walls: number): void {

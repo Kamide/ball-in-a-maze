@@ -1,3 +1,4 @@
+import { uint8ArrayToBase64 } from "uint8array-extras";
 import { describe, expect, it } from "vitest";
 import {
   ALL,
@@ -154,5 +155,25 @@ describe("CircularMaze", () => {
     expect(maze.rings).toBe(255);
     expect(maze.segments).toBe(255);
     expect(maze.data.length).toBe(WALLS + 255 * 255);
+  });
+
+  it("serializes to string and deserializes back correctly", () => {
+    const original = CircularMaze.barricaded(3, 4);
+    const serialized = original.toString();
+    const deserialized = CircularMaze.fromString(serialized);
+
+    expect(deserialized).toBeInstanceOf(CircularMaze);
+    expect(deserialized?.rings).toBe(original.rings);
+    expect(deserialized?.segments).toBe(original.segments);
+    expect(Array.from(deserialized!.data)).toEqual(Array.from(original.data));
+  });
+
+  it("returns undefined for invalid strings in fromString", () => {
+    expect(CircularMaze.fromString("")).toBeUndefined();
+    expect(CircularMaze.fromString("invalid_base64")).toBeUndefined();
+
+    const tooShort = CircularMaze.barricaded(2, 2).data.subarray(0, 2);
+    const tooShortString = uint8ArrayToBase64(tooShort, { urlSafe: true });
+    expect(CircularMaze.fromString(tooShortString)).toBeUndefined();
   });
 });
