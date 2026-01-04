@@ -1,12 +1,13 @@
 import { render } from "@testing-library/react";
 import { describe, it, vi } from "vitest";
-import { Game } from "../../src/game/main";
+import { CircularMaze3D } from "../../src/circular-maze/3d/canvas";
+import { generateCircularMaze } from "../../src/circular-maze/generate.ts";
 import { ResizeObserver } from "../stubs/resize-observer";
 
 vi.stubGlobal("ResizeObserver", ResizeObserver);
 
-describe("Game", () => {
+describe("CircularMaze3D", () => {
   it("renders without crashing", () => {
-    render(<Game />);
+    render(<CircularMaze3D maze={generateCircularMaze(8, 16)} />);
   });
 });
