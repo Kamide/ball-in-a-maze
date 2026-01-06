@@ -113,6 +113,14 @@ describe("generateCircularMaze", () => {
 
     expect(exits).toBe(1);
   });
+
+  it("does not throw when random always returns 0", () => {
+    expect(() => generateCircularMaze(4, 6, () => 0)).not.toThrow();
+  });
+
+  it("does not throw when random always returns 1", () => {
+    expect(() => generateCircularMaze(4, 6, () => 1)).not.toThrow();
+  });
 });
 
 function neighborsOf(

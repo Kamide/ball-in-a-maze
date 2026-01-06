@@ -68,7 +68,7 @@ export function generateCircularMaze(
 
   while (frontier.length > 0) {
     const { ring, segment, wall } = frontier.splice(
-      Math.trunc(random() * frontier.length),
+      Math.min(Math.trunc(random() * frontier.length), frontier.length - 1),
       1,
     )[0];
 
