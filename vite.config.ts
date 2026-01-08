@@ -50,6 +50,28 @@ export default defineConfig({
             purpose: "maskable",
           },
         ],
+        screenshots: [
+          {
+            src: "screenshots/narrow-confetti.png",
+            sizes: "1290x2796",
+            form_factor: "narrow",
+          },
+          {
+            src: "screenshots/narrow-settings.png",
+            sizes: "1290x2796",
+            form_factor: "narrow",
+          },
+          {
+            src: "screenshots/wide-confetti.png",
+            sizes: "2732x2048",
+            form_factor: "wide",
+          },
+          {
+            src: "screenshots/wide-settings.png",
+            sizes: "2732x2048",
+            form_factor: "wide",
+          },
+        ],
       },
       workbox: {
         maximumFileSizeToCacheInBytes: 5000000,
