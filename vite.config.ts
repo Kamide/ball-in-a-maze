@@ -2,11 +2,13 @@
 
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "./",
   plugins: [
     react({
       babel: {
@@ -18,6 +20,7 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["logo.svg"],
       manifest: {
+        id: "ball-in-a-maze",
         name: "Ball in a Maze",
         short_name: "Ball in a Maze",
         description:
@@ -50,10 +53,15 @@ export default defineConfig({
       },
       workbox: {
         maximumFileSizeToCacheInBytes: 5000000,
-        globPatterns: ["**/*.{js,wasm,css,html,png,svg,ico,hdr}"],
+        globPatterns: ["**/*.{js,wasm,css,html,png,svg,ico,hdr,woff2}"],
       },
     }),
   ],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src"),
+    },
+  },
   test: {
     environment: "jsdom",
     globals: true,
