@@ -1,7 +1,7 @@
+import { CircularMaze2D } from "@/circular-maze/2d";
+import { CircularMaze, INWARD } from "@/circular-maze/core";
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { CircularMaze2D } from "../../src/circular-maze/2d";
-import { CircularMaze, INWARD } from "../../src/circular-maze/core";
 
 describe("CircularMaze2D", () => {
   it("renders non-empty paths for a small maze", () => {

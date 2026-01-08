@@ -1,5 +1,3 @@
-import { uint8ArrayToBase64 } from "uint8array-extras";
-import { describe, expect, it } from "vitest";
 import {
   ALL,
   CircularMaze,
@@ -12,7 +10,9 @@ import {
   RINGS,
   SEGMENTS,
   WALLS,
-} from "../../src/circular-maze/core";
+} from "@/circular-maze/core";
+import { uint8ArrayToBase64 } from "uint8array-extras";
+import { describe, expect, it } from "vitest";
 
 describe("CircularMaze", () => {
   it("defines disjoint single-bit wall flags and a correct ALL mask", () => {

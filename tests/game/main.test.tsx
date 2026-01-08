@@ -1,6 +1,6 @@
+import { Game } from "@/game/main";
 import { render } from "@testing-library/react";
 import { describe, it, vi } from "vitest";
-import { Game } from "../../src/game/main";
 import { ResizeObserver } from "../stubs/resize-observer";
 
 vi.stubGlobal("ResizeObserver", ResizeObserver);
