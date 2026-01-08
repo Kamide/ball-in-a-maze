@@ -50,6 +50,7 @@ export function CircularMaze3D(props: CircularMaze3DProps) {
 function DefaultCamera() {
   const aspect = useThree((state) => state.viewport.aspect);
   const position = useThree((state) => state.camera.position);
+  const rotation = useThree((state) => state.camera.rotation);
   const fov = useSettings((state) => (state.fov * Math.PI) / 180);
   const padding = useSettings((state) => state.padding);
 
@@ -62,8 +63,14 @@ function DefaultCamera() {
   }
 
   useLayoutEffect(() => {
+    position.setX(0);
+    position.setY(0);
     position.setZ(z);
   }, [position, z]);
+
+  useLayoutEffect(() => {
+    rotation.set(0, 0, 0);
+  }, [rotation]);
 
   return null;
 }

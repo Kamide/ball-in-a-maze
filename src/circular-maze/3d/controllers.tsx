@@ -33,6 +33,7 @@ export function OrientationGravityController() {
 
   return null;
 }
+
 export function PointerGravityController() {
   const { world } = useRapier();
   const gravity = useGravity();
